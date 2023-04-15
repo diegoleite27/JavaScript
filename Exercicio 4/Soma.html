@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soma</title>
+</head>
+<body>
+
+    <p id="soma"></p>
+    <p id="sub"></p>
+    <p id="mult"></p>
+    <p id="divisão"></p>
+
+    <script>
+
+        let number1 = 509;
+        let number2 = 630;
+        let soma= number1 + number2;
+        let sub= number1 - number2;
+        let mult= number1 *number2;
+        let divisão= number1 /number2;
+
+        console.log("O resultado da soma é:"+soma);
+        alert("O resultado da soma é:"+ soma);
+        document.getElementById("soma").innerHTML ="O resultado da soma é:"+ soma;
+
+        console.log("O resultado da subtração é:"+ sub);
+        alert("O resultado da subtração é:"+ sub);
+        document.getElementById("sub").innerHTML ="O resultado da subtração é:"+ sub;
+
+        console.log("O resultado da multiplicaçaõ é:"+ mult);
+        alert("O resultado da multiplicação é:"+ mult);
+        document.getElementById("mult").innerHTML ="O resultado da multiplicação é:"+ mult;
+
+        console.log("O resultado da divisão é:"+ divisão);
+        alert("O resultado da divisão é:"+ divisão);
+        document.getElementById("divisão").innerHTML ="O resultado da divisão é:"+ divisão;
+    </script>
+    
+</body>
+</html>
