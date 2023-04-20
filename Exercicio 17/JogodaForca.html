@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Forca</title>
+</head>
+<body>
+    <script>
+      
+        let palavraSecreta = prompt("Digite a palavra secreta:").toUpperCase();
+        let tamanhoPalavra = palavraSecreta.length;
+        let letrasJaChutadas = "";
+        let letrasErradas = "";
+        let letrasAcertadas = "";
+
+        
+        for (let i = 0; i < tamanhoPalavra; i++) {
+        letrasAcertadas += "_";
+        }
+
+      
+        let tentativas = 0;
+        let numTentativasMax = 6; 
+
+   
+        while (letrasAcertadas !== palavraSecreta && letrasErradas.length < numTentativasMax) {
+
+        
+        alert("Letras já chutadas: " + letrasJaChutadas +
+                "\nLetras erradas: " + letrasErradas +
+                "\nPalavra secreta: " + letrasAcertadas);
+
+       
+        let letraChutada = prompt("Digite uma letra:").toUpperCase();
+
+       
+        if (letrasJaChutadas.includes(letraChutada)) {
+            alert("Você já chutou esta letra. Tente outra vez.");
+        }
+        else {
+            
+            letrasJaChutadas += letraChutada;
+
+            
+            if (palavraSecreta.includes(letraChutada)) {
+            
+            for (let j = 0; j < tamanhoPalavra; j++) {
+                if (palavraSecreta[j] === letraChutada) {
+                letrasAcertadas = letrasAcertadas.substring(0, j) + letraChutada + letrasAcertadas.substring(j + 1);
+                }
+            }
+            }
+            else {
+            
+            letrasErradas += letraChutada;
+            }
+        }
+        }
+
+       
+        if (letrasAcertadas === palavraSecreta) {
+        alert("Parabéns, você acertou a palavra secreta: " + palavraSecreta);
+        }
+        else {
+        alert("Fim de jogo. A palavra secreta era: " + palavraSecreta);
+        }
+    </script>
+</body>
+</html>

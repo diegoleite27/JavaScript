@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<script>
+
+let estoque = []; // array para armazenar os itens do estoque
+
+while (true) { // loop infinito para o programa continuar executando até que o usuário decida sair
+  let opcao = prompt("Escolha uma opção:\n1 - Adicionar um novo item\n2 - Remover um item\n3 - Exibir lista de itens\n4 - Sair");
+
+  // sequência "\n" é utilizada para inserir uma quebra de linha no meio da mensagem
+// O true é utilizado como condição no loop while para criar um loop infinito,
+//  ou seja, um loop que irá executar continuamente até que alguma instrução dentro do loop quebre a condição.
+// No caso desse código, o loop infinito é utilizado para manter o programa em execução até que o usuário decida sair, 
+// escolhendo a opção "4" no prompt que é exibido. Enquanto o usuário não escolher a opção "4", 
+// o loop irá continuar executando e exibindo o prompt para que o usuário possa escolher uma das outras opções disponíveis.
+
+  if (opcao === "1") { // opção para adicionar um novo item ao estoque
+    let novoItem = prompt("Digite o nome do novo item:");
+    estoque.push(novoItem);
+    alert(`O item "${novoItem}" foi adicionado ao estoque.`);
+
+
+  } else if (opcao === "2") { // opção para remover um item existente do estoque
+    let itemRemovido = prompt("Digite o nome do item que deseja remover:");
+    let index = estoque.indexOf(itemRemovido);
+    if (index !== -1) { // verifica se o item existe no estoque
+      estoque.splice(index, 1);
+      alert(`O item "${itemRemovido}" foi removido do estoque.`);
+
+    } else {
+      alert(`O item "${itemRemovido}" não existe no estoque.`);
+    }
+
+// index é uma variável que armazena o índice (posição) do item que o usuário deseja remover no array estoque. 
+// A função indexOf() é utilizada para encontrar a posição do elemento no array.
+
+// Se o elemento não for encontrado, a função indexOf() retorna -1. Por isso, a condição if (index !== -1)
+//  é utilizada para verificar se o item existe no estoque antes de removê-lo.
+//   Caso o item exista, a função splice() é utilizada para remover o elemento do array.
+
+// A função splice() recebe dois parâmetros: o primeiro é o índice do elemento que deve ser removido
+//  e o segundo é a quantidade de elementos que devem ser removidos a partir desse índice. No caso desse código,
+// o segundo parâmetro é 1, pois estamos removendo apenas um item.
+
+// Por fim, é exibida uma mensagem na tela utilizando a função alert(), informando que o item foi removido do estoque.
+
+
+
+   
+
+  } else if (opcao === "3") { // opção para exibir a lista de itens no estoque
+    let listaItens = "";
+    estoque.forEach(function(item) {
+      listaItens += item + "\n";
+    });
+    alert(`Itens no estoque:\n${listaItens}`);
+
+    // estoque.forEach(function(item) percorre todos os elementos do array estoque e executa uma função de callback para cada item,
+    //  onde o valor atual do item é armazenado em uma variável chamada item.
+//     A lógica dessa função é percorrer o array estoque utilizando o método forEach(),
+//      que recebe como parâmetro uma função que será executada para cada elemento do array.
+// Dentro dessa função, o valor do item é adicionado à variável listaItens, 
+// que é uma string vazia no início da função. O operador += é utilizado para concatenar o valor atual 
+// do item com o valor anterior da variável listaItens, formando assim uma lista de itens separados por uma quebra de linha (\n).
+
+  } else if (opcao === "4") { // opção para sair do programa
+    alert("O programa foi encerrado.");
+    break;
+
+  } else {
+    alert("Opção inválida. Tente novamente.");
+  }
+}
+
+
+</script>
+
+</body>
+</html>
